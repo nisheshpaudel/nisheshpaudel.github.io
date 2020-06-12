@@ -6,7 +6,7 @@
     <style>
         .main {
             text-align: center;
-
+            background-color: lightslategrey ;
         }
 
     </style>
@@ -18,15 +18,19 @@
 <div class="main" id="mainContainer" hidden>
 
     <img
-            height="100"
-            width="100"
+            height="200"
+            width="200"
             id="profileImage"
+            align="left"
     >
-    <h2 id="fullName"> </h2>
-    <p id="bio"> </p>
+    <h2 id="fullName" style="font-size:40px;font-size: 40px" > </h2>
+    <p id="bio" style="color: lightgoldenrodyellow"> </p>
     <h5 id="followersInformation"> </h5>
     <p>
         Check me on <a id="githubLink">Github</a>
+    </p>
+    <p>
+        Click to open <a id="githubRepos">the list of all my repos.</a>
     </p>
     <a class="twitter-timeline" data-width="300" data-height="400"
        href="https://twitter.com/nisheshpaudel?ref_src=twsrc%5Etfw">Tweets by nisheshpaudel</a>
@@ -39,12 +43,13 @@
             console.log(data)
 
             let followersCount = data['followers']
-            let followersInfo = 'I have been followed by ${followersCount} people on Github'
+            let followersInfo = 'I am a new member of the Github community.'
             document.getElementById('profileImage').src = data['avatar_url']
             document.getElementById('fullName').textContent = data['name']
             document.getElementById('bio').textContent = data['bio']
             document.getElementById('followersInformation').textContent = followersInfo
             document.getElementById('githubLink').href = data['html_url']
+            document.getElementById('githubRepos').href = data['repos_url']
             document.getElementById('mainContainer').hidden = false
             document.getElementById('loading').hidden = true
         })
